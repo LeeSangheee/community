@@ -1,0 +1,24 @@
+[0;1;32m●[0m containerd.service - containerd container runtime
+     Loaded: loaded (/lib/systemd/system/containerd.service; enabled; vendor preset: enabled)
+     Active: [0;1;32mactive (running)[0m since Thu 2025-12-04 19:37:18 PST; 5min ago
+       Docs: https://containerd.io
+   Main PID: 21041 (containerd)
+      Tasks: 63
+     Memory: 261.7M
+     CGroup: /system.slice/containerd.service
+             ├─21041 /usr/bin/containerd
+             ├─21859 /usr/bin/containerd-shim-runc-v2 -namespace k8s.io -id cae64cf7a23b01f3d6f1b56ca84483f20b873f97c5a0560e566b49c72c272a2e -address /run/containerd/containerd.sock
+             ├─21876 /usr/bin/containerd-shim-runc-v2 -namespace k8s.io -id 530f437ce84838639a3efd7020859ab2831cd6635db44f61a5286309f74b51a0 -address /run/containerd/containerd.sock
+             ├─21883 /usr/bin/containerd-shim-runc-v2 -namespace k8s.io -id d75c8595b41c995d02775783ac6f9cdaa1ad7b11ded530e4dff4fd525207412a -address /run/containerd/containerd.sock
+             └─21900 /usr/bin/containerd-shim-runc-v2 -namespace k8s.io -id 4bf4dbea393da6fb03da39ec887d44e0ae2ab4c2e6459b2b44a138a89afbbc35 -address /run/containerd/containerd.sock
+
+Dec 04 19:38:40 k8s-master1 containerd[21041]: time="2025-12-04T19:38:40.049298260-08:00" level=info msg="StopPodSandbox for \"e40932ea1d982c4d11d72631c821f22c75cc17f7191c3ea02b7445d61c42c9c5\""
+Dec 04 19:39:01 k8s-master1 containerd[21041]: time="2025-12-04T19:39:01.122817698-08:00" level=error msg="StopPodSandbox for \"e40932ea1d982c4d11d72631c821f22c75cc17f7191c3ea02b7445d61c42c9c5\" failed" error="failed to destroy network for sandbox \"e40932ea1d982c4d11d72631c821f22c75cc17f7191c3ea02b7445d61c42c9c5\": plugin type=\"calico\" failed (delete): error getting ClusterInformation: Get \"https://10.96.0.1:443/apis/crd.projectcalico.org/v1/clusterinformations/default\": dial tcp 10.96.0.1:443: connect: connection refused"
+Dec 04 19:40:01 k8s-master1 containerd[21041]: time="2025-12-04T19:40:01.126980617-08:00" level=info msg="StopPodSandbox for \"2e8adbe83ccebdbd0b557c51ed6dc5374c972efc13912c25df01cc37fffacac7\""
+Dec 04 19:40:22 k8s-master1 containerd[21041]: time="2025-12-04T19:40:22.179089877-08:00" level=error msg="StopPodSandbox for \"2e8adbe83ccebdbd0b557c51ed6dc5374c972efc13912c25df01cc37fffacac7\" failed" error="failed to destroy network for sandbox \"2e8adbe83ccebdbd0b557c51ed6dc5374c972efc13912c25df01cc37fffacac7\": plugin type=\"calico\" failed (delete): error getting ClusterInformation: Get \"https://10.96.0.1:443/apis/crd.projectcalico.org/v1/clusterinformations/default\": dial tcp 10.96.0.1:443: connect: connection refused"
+Dec 04 19:40:22 k8s-master1 containerd[21041]: time="2025-12-04T19:40:22.180050422-08:00" level=info msg="StopPodSandbox for \"e40932ea1d982c4d11d72631c821f22c75cc17f7191c3ea02b7445d61c42c9c5\""
+Dec 04 19:40:43 k8s-master1 containerd[21041]: time="2025-12-04T19:40:43.233214267-08:00" level=error msg="StopPodSandbox for \"e40932ea1d982c4d11d72631c821f22c75cc17f7191c3ea02b7445d61c42c9c5\" failed" error="failed to destroy network for sandbox \"e40932ea1d982c4d11d72631c821f22c75cc17f7191c3ea02b7445d61c42c9c5\": plugin type=\"calico\" failed (delete): error getting ClusterInformation: Get \"https://10.96.0.1:443/apis/crd.projectcalico.org/v1/clusterinformations/default\": dial tcp 10.96.0.1:443: connect: connection refused"
+Dec 04 19:41:43 k8s-master1 containerd[21041]: time="2025-12-04T19:41:43.235436065-08:00" level=info msg="StopPodSandbox for \"e40932ea1d982c4d11d72631c821f22c75cc17f7191c3ea02b7445d61c42c9c5\""
+Dec 04 19:42:04 k8s-master1 containerd[21041]: time="2025-12-04T19:42:04.294816567-08:00" level=error msg="StopPodSandbox for \"e40932ea1d982c4d11d72631c821f22c75cc17f7191c3ea02b7445d61c42c9c5\" failed" error="failed to destroy network for sandbox \"e40932ea1d982c4d11d72631c821f22c75cc17f7191c3ea02b7445d61c42c9c5\": plugin type=\"calico\" failed (delete): error getting ClusterInformation: Get \"https://10.96.0.1:443/apis/crd.projectcalico.org/v1/clusterinformations/default\": dial tcp 10.96.0.1:443: connect: connection refused"
+Dec 04 19:42:04 k8s-master1 containerd[21041]: time="2025-12-04T19:42:04.295909808-08:00" level=info msg="StopPodSandbox for \"2e8adbe83ccebdbd0b557c51ed6dc5374c972efc13912c25df01cc37fffacac7\""
+Dec 04 19:42:25 k8s-master1 containerd[21041]: time="2025-12-04T19:42:25.346332609-08:00" level=error msg="StopPodSandbox for \"2e8adbe83ccebdbd0b557c51ed6dc5374c972efc13912c25df01cc37fffacac7\" failed" error="failed to destroy network for sandbox \"2e8adbe83ccebdbd0b557c51ed6dc5374c972efc13912c25df01cc37fffacac7\": plugin type=\"calico\" failed (delete): error getting ClusterInformation: Get \"https://10.96.0.1:443/apis/crd.projectcalico.org/v1/clusterinformations/default\": dial tcp 10.96.0.1:443: connect: connection refused"

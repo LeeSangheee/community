@@ -1,0 +1,56 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql-router
+  labels:
+    app: mysql-router
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: mysql-router
+  template:
+    metadata:
+      labels:
+        app: mysql-router
+    spec:
+      hostAliases:
+        - ip: "10.0.2.30"
+          hostnames: ["db-active"]
+        - ip: "10.0.2.31"
+          hostnames: ["db-standby"]
+        - ip: "10.0.2.32"
+          hostnames: ["db-standby2"]
+
+      containers:
+        - name: mysql-router
+          image: mysql/mysql-router:8.0
+          env:
+            - name: MYSQL_HOST
+              value: "db-active"
+            - name: MYSQL_PORT
+              value: "3306"
+            - name: MYSQL_USER
+              value: "routerUser"
+            - name: MYSQL_PASSWORD
+              value: "0000"
+          ports:
+            - containerPort: 6446
+            - containerPort: 6447
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mysql-router
+spec:
+  selector:
+    app: mysql-router
+  ports:
+    - name: rw
+      port: 6446
+      targetPort: 6446
+    - name: ro
+      port: 6447
+      targetPort: 6447
+  type: ClusterIP
+

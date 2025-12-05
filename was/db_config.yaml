@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: db-config
+  namespace: was
+data:
+  DB_HOST: "10.0.2.30"
+  DB_PORT: "3306"
+  DB_NAME: "community"
+
