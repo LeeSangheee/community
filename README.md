@@ -35,31 +35,8 @@ This project implements a containerized microservice-oriented architecture showc
 ### System Architecture Diagram
 
 ```
-┌─────────────────────────────────────────────────────────────┐
-│                        Internet/Client                       │
-└────────────────────────┬────────────────────────────────────┘
-                         │
-┌────────────────────────▼────────────────────────────────────┐
-│                  Nginx Reverse Proxy                        │
-│     (Port 80/443, Load Balancing, SSL Termination)         │
-└────────────────────────┬────────────────────────────────────┘
-                         │
-        ┌────────────────┼────────────────┐
-        │                │                │
-┌───────▼──────┐  ┌──────▼──────┐  ┌────▼──────────┐
-│  Tomcat App  │  │  Tomcat App │  │  Tomcat App   │
-│   Instance 1 │  │ Instance 2  │  │ (Horizontal   │
-│ (Port 8080)  │  │ (Port 8080) │  │  Scalability) │
-└───────┬──────┘  └──────┬──────┘  └────┬──────────┘
-        │                │              │
-        └────────────────┼──────────────┘
-                         │
-        ┌────────────────┼────────────────┐
-        │                │                │
-┌───────▼──────┐  ┌──────▼──────┐  ┌────▼──────────┐
-│  Redis Cache │  │  MySQL DB   │  │  Monitoring   │
-│   (Optional) │  │  (Port 3306)│  │  Stack        │
-└──────────────┘  └─────────────┘  └───────────────┘
+![architecture (1)](https://github.com/user-attachments/assets/28ee7680-da4f-4d6c-bc54-afdfb80f8bd2)
+
 ```
 
 ### Containerized Components
