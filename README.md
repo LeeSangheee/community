@@ -25,29 +25,29 @@ RAPA 커뮤니티 웹 애플리케이션 | 엔터프라이즈급 컨테이너 �
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
-│                Docker Compose (IaC)                              │
+│                Docker Compose (IaC)                             |
 ├─────────────────────────────────────────────────────────────────┤
-│                                                                   │
+│                                                                 │
 │  ┌──────────────┐      ┌──────────────┐      ┌──────────────┐   │
 │  │  Nginx 1.14  │      │ Tomcat 10.1  │      │  MySQL 8.0   │   │
 │  │ (Reverse Proxy)──→  │ (Application)├─────→│  (Database)  │   │
-│  │  Port:  80    │      │  Port: 8080  │      │ Port: 3306   │   │
+│  │  Port:  80    │      │  Port: 8080  │      │ Port: 3306   │  │
 │  └──────────────┘      └──────────────┘      └──────────────┘   │
-│        ▲                      ▲                      ▲             │
-│        │                      │                      │             │
-│   - Static Assets      - WAR Deployment       - Volume Mount      │
-│   - Routing Rules      - JNDI DataSource      - Init Scripts      │
-│   - Compression        - JVM Config           - Health Check      │
-│                                                                   │
-│  Network:  community-network (bridge driver)                      │
-│  Volume: mysql-data (persistent storage)                         │
+│        ▲                      ▲                      ▲          │
+│        │                      │                      │          │
+│   - Static Assets      - WAR Deployment       - Volume Mount    │
+│   - Routing Rules      - JNDI DataSource      - Init Scripts    │
+│   - Compression        - JVM Config           - Health Check    │
+│                                                                 │
+│  Network:  community-network (bridge driver)                    │
+│  Volume: mysql-data (persistent storage)                        │
 └─────────────────────────────────────────────────────────────────┘
 ```
 
 ### Production: Kubernetes Cluster Architecture
 
 ```
-![Kubernetes Architecture](images/kubernetes-architecture.png)
+![Kubernetes Architecture](./images/kubernetes-architecture.png)
 ```
 
 ---
