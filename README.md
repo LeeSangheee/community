@@ -56,41 +56,41 @@ RAPA 커뮤니티 웹 애플리케이션 | 엔터프라이즈급 컨테이너 �
 
 ```
 community/
-├── src/                              # Java 소스코드 (69.4%)
+├── src/                              
 │   └── com/rapa/community/
 │
-├── webapp/                           # WAR 아카이브 리소스
+├── webapp/                       
 │   ├── WEB-INF/
-│   │   ├── classes/                  # 컴파일된 클래스
-│   │   ├── lib/                      # 라이브러리 의존성
+│   │   ├── classes/              
+│   │   ├── lib/
 │   │   │   ├── jakarta.servlet-api-6.0.0.jar
 │   │   │   ├── jakarta.jakartaee-api-10.0.0.jar
 │   │   │   └── mysql-connector-j-8.0.33.jar
 │   │   └── jsp/
-│   ├── css/                          # 스타일시트 (20.6%)
-│   ├── img/                          # 이미지 자산
-│   ├── index.jsp, home.jsp           # JSP 페이지들
+│   ├── css/                          
+│   ├── img/                          
+│   ├── index.jsp, home.jsp           
 │   ├── board.jsp, post.jsp
 │   ├── profile.jsp, join.jsp
 │   └── my-posts.jsp, my-comments.jsp, my-scraps.jsp
 │
-├── nginx/                            # Reverse Proxy (7.3%)
+├── nginx/                            
 │   ├── Dockerfile
 │   └── conf.d/default.conf
 │
-├── tomcat-config/                    # Tomcat 설정
-│   └── context.xml                   # JNDI DataSource
+├── tomcat-config/                    
+│   └── context.xml                   
 │
-├── mysql/                            # MySQL 초기화
+├── mysql/                            
 │   └── init/*.sql
 │
-├── docker-compose.yml                # 서비스 오케스트레이션
-├── Dockerfile                        # 멀티스테이지 빌드
-├── build.sh                          # 빌드 스크립트
-├── run.sh, stop.sh                   # 실행 스크립트
-├── setenv.sh                         # JVM 환경변수
+├── docker-compose.yml                
+├── Dockerfile                        
+├── build.sh
+├── run.sh, stop.sh                   
+├── setenv.sh                         
 │
-└── README.md                         # 이 파일
+└── README.md                         
 ```
 
 ---
