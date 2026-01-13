@@ -342,11 +342,6 @@ helm install community ./helm-chart
 - [Kubernetes 리소스 정의](https://kubernetes.io/docs/concepts/)
 
 ---
-
-## 📝 라이선스
-
-MIT License
-
 ---
 
 ## 👨‍💻 개발자
