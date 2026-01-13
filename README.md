@@ -46,9 +46,9 @@ RAPA 커뮤니티 웹 애플리케이션 | 엔터프라이즈급 컨테이너 �
 
 ### Production: Kubernetes Cluster Architecture
 
-```
+
 ![image](./images/kubernetes-architecture.png)
-```
+
 
 ---
 
