@@ -28,7 +28,7 @@ spec:
 
       containers:
         - name: tomcat-container
-          image: 284484063229.dkr.ecr.ap-northeast-2.amazonaws.com/community-tomcat:3.0
+          image: 349132805116.dkr.ecr.ap-northeast-2.amazonaws.com/com-tomcat:v1.0
           imagePullPolicy: Always
           ports:
             - containerPort: 8080

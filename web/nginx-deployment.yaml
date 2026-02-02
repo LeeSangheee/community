@@ -29,7 +29,7 @@ spec:
 
       containers:
       - name: nginx-container
-        image: 284484063229.dkr.ecr.ap-northeast-2.amazonaws.com/community-nginx:1.1
+        image: 349132805116.dkr.ecr.ap-northeast-2.amazonaws.com/com-nginx:v1.0
         ports:
         - containerPort: 80
 
