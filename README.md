@@ -1,6 +1,6 @@
 # Kubernetes 기반 3-Tier 웹서비스 자동화 배포 구현
 
-커뮤니티 웹 애플리케이션을 **vmware 기반 Kubernetes 클러스터** 위에 직접 구축하고,  
+커뮤니티 웹 애플리케이션을 **생 Kubernetes 클러스터** 위에 직접 구축하고,  
 GitOps 기반 자동 배포와 Auto Scaling을 통해 고가용성을 달성한 인프라 프로젝트입니다.
 
 ---
@@ -17,7 +17,7 @@ GitOps 기반 자동 배포와 Auto Scaling을 통해 고가용성을 달성한 
 ---
 
 ## 아키텍처
-![image](./images/kubernetes-architecture.png)
+
 ```
 [ 사용자 ]
     │
@@ -101,50 +101,41 @@ community/
 ├── mysql/init/         # DB 초기화 스크립트
 ├── metallb/            # MetalLB 설정 매니페스트
 ├── build/              # 빌드 산출물
-├── Dockerfile          # 멀티스테이지 빌드 정의
-├── docker-compose.yml  # 로컬 개발환경 구성
-└── build.sh / run.sh   # 빌드 및 실행 자동화 스크립트
+├── Dockerfile          # 컨테이너 이미지 빌드 정의
+├── docker-compose.yml  # 로컬 개발환경 전용 (K8s 배포와 무관)
+└── build.sh / run.sh   # 이미지 빌드 자동화 스크립트
 ```
 
 ---
 
-## 로컬 개발환경 실행
+## 실행 방법
+
+### 로컬 개발환경 (docker-compose)
+
+K8s 클러스터 없이 빠르게 동작을 확인할 때만 사용합니다.
 
 ```bash
-# 저장소 클론
 git clone https://github.com/LeeSangheee/community.git
 cd community
-
-# 빌드
 chmod +x build.sh && ./build.sh
-
-# 실행
 docker-compose up -d
-
-# 접속
 # http://localhost:80
 ```
 
----
+### 프로덕션 배포 (Kubernetes)
 
-## 운영 명령어
+실제 서비스는 K8s 클러스터에 ArgoCD를 통해 배포됩니다.  
+Git 레포에 매니페스트를 push하면 ArgoCD가 자동으로 클러스터에 동기화합니다.
 
 ```bash
-# 서비스 상태 확인
-docker-compose ps
+# 이미지 빌드 및 레지스트리 푸시
+./build.sh
 
-# 실시간 로그
-docker-compose logs -f
-
-# 서비스별 로그
-docker-compose logs -f tomcat
-docker-compose logs -f nginx
-
-# 중지 (데이터 유지)
-docker-compose down
-
-# 전체 삭제
-docker-compose down -v
+# ArgoCD가 매니페스트 변경을 감지하여 자동 배포
+# 수동 배포가 필요한 경우
+kubectl apply -f metallb/
+kubectl rollout status deployment/nginx
+kubectl rollout status deployment/tomcat
 ```
 
 ---
